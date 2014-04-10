@@ -1,14 +1,15 @@
 from sequence import MultiSequence 
 
 if __name__ == '__main__':
-
-  seq = MultiSequence()
-#  seq.load_frames_from_path('/Volumes/Main/Photos/Timelapse/2012/genf1')
-#  seq.load_frames_from_path('/Users/dennis/Pictures/Timelapse/Berlin/Dom/')
-  seq.load_frames_from_path('/Users/dennis/Pictures/Timelapse/Kroatia/sunset2/')
-#  seq.load_frames_from_path('/Volumes/Main/Photos/Timelapse/2012/20120902_saleve_paragliders/')
-  seq.splitSequences()
-
-  seq.interpolate_cropping()
-  seq.interpolate_tonals()
-#  seq.diff()
+    # create sequence object
+    seq = MultiSequence()
+    # load all xmp files in the given path
+    seq.load_frames_from_path('PATH_TO_FOLDER_THAT_CONTAINS_XMP_FILES')
+    # generate sequence 
+    seq.splitSequences()
+    # interpolate the cropping between the sequence keyframes
+    seq.interpolate_cropping()
+    # interpolate the tonals between the sequence keyframes
+    seq.interpolate_tonals()
+    # print the differences (does not yet wirk with multi-sequences)
+    #seq.diff()

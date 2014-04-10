@@ -8,7 +8,6 @@ class Sequence:
     self.keyframe_last  = None
     self._init_config()
 
-
   def interpolate( self, attributes ):
     for attrkey in attributes:
       attr = self.keyframe_first.attributes[attrkey]
@@ -29,19 +28,16 @@ class Sequence:
       for f in self.frames:
         f.write()
 
-
   def interpolate_tonals(self):
     self.interpolate( [ 
         'crs:Exposure2012', 'crs:Contrast2012', 'crs:Highlights2012', 'crs:Shadows2012', 
         'crs:Whites2012', 'crs:Blacks2012', 'crs:Temperature', 'crs:Tint'
         ] )
 
-
   def interpolate_cropping( self ):
     self.interpolate( [ 
         'crs:CropLeft', 'crs:CropRight', 'crs:CropTop', 'crs:CropBottom'
         ] )
-
 
   def diff( self, attributes ):
     for a in attributes:
@@ -49,7 +45,6 @@ class Sequence:
       last  = self.keyframe_last.get_attribute( a )
       if first != last:
         print ( a, first, last )
-
 
   def _init_config( self ):
     self.config = {
